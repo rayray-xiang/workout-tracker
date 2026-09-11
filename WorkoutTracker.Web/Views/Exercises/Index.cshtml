@@ -1,0 +1,25 @@
+@model List<WorkoutTracker.Web.Models.Exercise>
+
+<h1>Exercises</h1>
+
+<a asp-action="Create">Add New Exercise</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Muscle Group</th>
+            <th>Equipment</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exercise in Model)
+        {
+            <tr>
+                <td>@exercise.Name</td>
+                <td>@exercise.MuscleGroup</td>
+                <td>@exercise.EquipmentType</td>
+            </tr>
+        }
+    </tbody>
+</table>

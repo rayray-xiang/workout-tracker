@@ -1,0 +1,16 @@
+@model WorkoutTracker.Web.Models.Workout
+
+<h1>Add Workout</h1>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Date"></label>
+        <input asp-for="Date" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <button type="submit">Save</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

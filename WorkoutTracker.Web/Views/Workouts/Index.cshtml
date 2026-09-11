@@ -1,0 +1,26 @@
+@model List<WorkoutTracker.Web.Models.Workout>
+
+<h1>Workouts</h1>
+
+<a asp-action="Create">Add New Workout</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Workout workout in Model)
+        {
+            <tr>
+                <td>@workout.Date</td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@workout.Id" method="post" style="display:inline">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

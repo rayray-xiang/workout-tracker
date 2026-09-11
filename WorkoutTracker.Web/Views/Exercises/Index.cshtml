@@ -10,15 +10,21 @@
             <th>Name</th>
             <th>Muscle Group</th>
             <th>Equipment</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var exercise in Model)
+        @foreach (Exercise exercise in Model)
         {
             <tr>
                 <td>@exercise.Name</td>
                 <td>@exercise.MuscleGroup</td>
                 <td>@exercise.EquipmentType</td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@exercise.Id" method="post" style="display:inline">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>

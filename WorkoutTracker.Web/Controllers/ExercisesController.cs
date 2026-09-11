@@ -40,4 +40,18 @@ public class ExercisesController : Controller
         }
         return View(exercise);
     }
+
+    // DELETE: /Exercises/Delete
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var exercise = await _db.Exercises.FindAsync(id);
+        if (exercise != null)
+        {
+            _db.Exercises.Remove(exercise);
+            await _db.SaveChangesAsync();
+        }
+        return RedirectToAction(nameof(Index));
+    }
 }
